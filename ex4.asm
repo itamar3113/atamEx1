@@ -5,7 +5,7 @@ _start:
 #your code here
 	xor %rdi, %rdi
 	xor %rdi, %rdi
-	movq head(%rip), %rax
+	movq $head, %rax
 	movq value, %rbx
 loop1_HW1:
 	testq %rax, %rax
@@ -14,16 +14,16 @@ loop1_HW1:
 	cmp %rcx, %rbx
 	je find_source_HW1
 	lea 8(%rax), %rdi
-	movq 16(%rax), %rax
+	movq 8(%rax), %rax
 	jmp loop1_HW1
 find_source_HW1:
-	movq head(%rip), %rbx
-	movq source(%rip), %rdx	
+	movq $head, %rbx
+	movq source, %rdx	
 loop2_HW1:
 	cmp %rbx, %rdx
 	je replace_HW1
 	lea 8(%rbx), %rsi 
-	movq 16(%rbx), %rbx
+	movq 8(%rbx), %rbx
 	jmp loop2_HW1
 replace_HW1:
 	movq (%rax), %r9
@@ -38,6 +38,7 @@ replace_HW1:
 	movq $source, (%rsi)
 	movq %rcx, (%rdi)
 end_HW1:
+
 	
 	
 	
