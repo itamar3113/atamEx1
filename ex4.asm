@@ -25,14 +25,17 @@ loop2_HW1:
 	movq 4(%rbx), %rbx
 	jmp loop2_HW1
 replace_HW1:
-	movq %rax, (%rsi)
+	movq (%rdi), %r8
+	movq (%rsi), %r9
+	movq %r9, (%rdi) 
+	movq %r8, (%rsi)
 	movq 4(%rdx), %rcx
 	movq 4(%rax), %rbx
 	movq %rcx, 4(%rax)
 	movq %rbx, 4(%rdx)
-	movq %rdx, (%rdi) 
-	 
+
 end_HW1:
+
 
 	
 	

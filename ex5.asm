@@ -36,3 +36,6 @@ INSERT_RIGHT_HW1:
 	movq $new_node, 16(%rax)
  
 END_EX5_HW1:
+
+
+
