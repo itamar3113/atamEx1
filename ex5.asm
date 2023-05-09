@@ -19,7 +19,7 @@ L1_HW1:
     test %rdx, %rdx    # if %rdx == null insert node
     je INSERT_LEFT_HW1
     movq %rdx, %rax     # node = node -> lson
-    jmp L1
+    jmp L1_HW1
 	
 GO_RIGHT_HW1:
     movq 16(%rax), %rdx # rdx = rson
