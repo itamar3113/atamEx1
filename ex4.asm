@@ -4,16 +4,15 @@
 _start:
 	movq head, %rax
 	movq $head, %rdi
-	movl val, %ebx
-	movsx %ebx, %rbx
+	movl Value, %ebx
 loop1_HW1:
 	testq %rax, %rax
 	jz end_HW1
-	movq (%rax), %rcx
-	cmp %rcx, %rbx
+	movl (%rax), %ecx
+	cmp %ecx, %ebx
 	je find_source_HW1
-	lea 8(%rax), %rdi
-	movq 8(%rax), %rax
+	lea 4(%rax), %rdi
+	movq 4(%rax), %rax
 	jmp loop1_HW1
 find_source_HW1:
 	movq head, %rbx
@@ -22,21 +21,18 @@ find_source_HW1:
 loop2_HW1:
 	cmp %rbx, %rdx
 	je replace_HW1
-	lea 8(%rbx), %rsi 
-	movq 8(%rbx), %rbx
+	lea 4(%rbx), %rsi 
+	movq 4(%rbx), %rbx
 	jmp loop2_HW1
 replace_HW1:
 	movq %rax, (%rsi)
-	movq 8(%rdx), %rcx
-	movq 8(%rax), %rbx
-	movq %rcx, 8(%rax)
-	movq %rbx, 8(%rdx)
+	movq 4(%rdx), %rcx
+	movq 4(%rax), %rbx
+	movq %rcx, 4(%rax)
+	movq %rbx, 4(%rdx)
 	movq %rdx, (%rdi) 
 	 
 end_HW1:
-
-
-
 
 	
 	
